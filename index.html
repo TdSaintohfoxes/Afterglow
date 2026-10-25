@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Afterglow</title>
+<meta name="description" content="Film and series picks tuned to your taste.">
+<meta name="theme-color" content="#07100d">
+<meta name="color-scheme" content="dark light">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Afterglow">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/favicon.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Hanken+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Lens: a faint liquid warp applied to the backdrop behind the tab bar (Chromium); other browsers fall back to plain blur. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="lens" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.008 0.016" numOctaves="2" seed="4" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="14" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<div id="ambient" aria-hidden="true">
+  <i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i>
+  <div id="ambPosters"></div>
+</div>
+
+<header class="top">
+  <div class="top-in">
+    <h1 class="mark">After<span>glow</span></h1>
+    <div class="top-tools">
+      <span class="offline" id="offline" hidden>Offline</span>
+      <button class="icon-btn glass" id="installBtn" type="button" hidden aria-label="Install Afterglow">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 19h14"/></svg>
+      </button>
+      <button class="icon-btn glass" id="refreshBtn" type="button" aria-label="Refresh picks">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="app" tabindex="-1"></main>
+
+<nav class="tabbar glass lens" id="tabbar" aria-label="Sections" style="--i:0">
+  <i class="thumb" aria-hidden="true"></i>
+  <button type="button" data-view="discover" aria-current="page">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.2 5.3L20 10l-4.3 3.6L17 19l-5-3-5 3 1.3-5.4L4 10l5.8-1.7z"/></svg><span>Discover</span>
+  </button>
+  <button type="button" data-view="library">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4-6 4z"/></svg><span>Library</span>
+  </button>
+  <button type="button" data-view="taste">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M6 14v6"/></svg><span>Taste</span>
+  </button>
+</nav>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="scrim" id="scrim"></div>
+  <section class="panel glass" id="sheetPanel" role="dialog" aria-modal="true" aria-label="Title details"></section>
+</div>
+
+<div class="toast glass" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

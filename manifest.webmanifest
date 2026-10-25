@@ -1,0 +1,22 @@
+{
+  "name": "Afterglow",
+  "short_name": "Afterglow",
+  "description": "Film and series picks tuned to your taste, with a model that learns from what you love and skip.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#07100d",
+  "theme_color": "#07100d",
+  "categories": ["entertainment", "lifestyle"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Tonight's pick", "url": "./?view=discover", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Watchlist", "url": "./?view=library", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}
